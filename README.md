@@ -61,3 +61,33 @@ First of all, we note: the real points on her lattice are established from the b
 [9] Advanced Topics in Cryptography: Lattices, Vinod Vaikuntanathan, Computational Problems, Online, Available: https://people.csail.mit.edu/vinodv/6876-Fall2015/L3.pdf
 
 [10] University of San Diego, CSE 206A: Lattice Algorithms and Applications, Daniele Micciancio, https://cseweb.ucsd.edu/classes/wi12/cse206A-a/lec3.pd
+
+[22] Wikipedia, Noisy intermediate-scale quantum era, 2024 https://en.wikipedia.org/wiki/Noisy intermediate-scale quantum era
+
+[23] The anticipated arrival of quantum computers poses significant cybersecurity risks for those who do not prepare early, 2025, https://www.actuaries.asn.au/research-analysis/c-suite-should-be-concerned-about-post-quantum-cryptography
+
+[24] IQM and VTT Launch Europe’s 1st 50-Qubit Superconducting Quantum Computer, March 4, 2025 https://www.hpcwire.com/off-the-wire/iqm-and-vtt-launch-europes-1st-50-qubit-superconducting-quantum-computer/
+
+[25] Doerr and Levasseur ”Applied Discrete Structures” https://math.libretexts.org/Applied Discrete Structures (Doerr and Levasseur)/16%3A An In
+
+[26] UCLA, ”Circles” https://circles.math.ucla.edu/circles/lib/data/Handout-3861-3432.pdf
+
+[27] UCI, Graduate Algebra, Midterm Practise Problems, https://www.math.uci.edu/˜nckaplan/teaching files/graduate algebra/Math206B Midterm2 P
+
+[28] Wikipedia, Lattice Groups, [Online], Available: https://en.wikipedia.org/wiki/Lattice (group)
+
+[29] Planning for post-quantum cryptography, [Online], Available: https://www.cyber.gov.au/resources-business-and-government/governance-and-user-education governance/planning-post-quantum-cryptography
+
+[30] Post-Quantum Cryptography Initiative , [Online], Available: https://www.cisa.gov/resources-tools/resources/quantum-readiness-migration-post-quantum-cryptography
+
+[31] NIST, ”Why prepare Now? Quantum Readiness”, 2023, [Online], Available: https://www.cisa.gov/sites/default/files/2023-08/Quantum
+
+[32] Chris Vale, Shor and Grover’s algorothms, [Online], Available: https://kuscholarworks.ku.edu/server/api/core/bitstreams/0b163bff-f673-454e-b0e4-8a2e4abc7b9a/content
+
+[33] NIST, Announcing Approval of Three Federal Information Processing Standards (FIPS) for Post-Quantum Cryptography , [Online], Available: https://csrc.nist.gov/news/2024/postquantum-cryptography-fips-approved
+
+[34] NIST, Finalising An Important Step Towards Quantum Safe Future, [Online], Available: https://cloudsecurityalliance.org/blog/2024/08/15/nist-fips-203-204- and-205-finalized-an-important-step-towards-a-quantum-safe-future
+
+[35] Nilsson, A. (2023). Decryption Failure Attacks on Post-Quantum Cryptography. [Doctoral Thesis (compilation), Department of Electrical and Information Technology]. Lunds Universitet, [Online], Available: https://lup.lub.lu.se/search/files/143742917/thesis.pdf
+
+
