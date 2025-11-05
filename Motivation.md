@@ -1,4 +1,18 @@
-# About this Repo
+# Project Motivation
+
+## The focus for this work: via https://arxiv.org/pdf/2311.15064#cite.micciancioPracticalPredictableLattice2016
+
+This paper, the main motivation for this project, introduces a recursive lattice reduction framework designed to solve two core problems in lattice theory: finding the shortest non-zero vector (SVP) and locating dense sublattices within a larger lattice. The central idea is to try and break down the larger problem on a high-rank lattice into simpler, lower-rank subproblems. This is achieved through an iterative process of finding dense sublattices within dense sublattices (or their duals), where the rank progressively decreases at each step.  This method provides an elegant and effective approach to handle the task of fidning solutions within these higher ranked lattices.
+
+There are a few reaons this is helpful.  One, it is similar to BKZ and LLL, in that it is overall reducing the size of the lattice in solving.  And two, it it is shown to be an efficient reduction that matches the effective trade-off achieved by the best existing basis reduction algorithms available today.
+
+The formal algorithm, A(L,aux), demonstrates how this recursion works in practice, by reducing the γ-HSVP problem on an n-rank lattice to the δk​​-HSVP on a smaller k-rank lattice. For lattices that are still large, the framework is instructed to find a sublattice L′ with a lower rank and a small determinant, and then recursively call the function on that new sublattice. The entire process is managed by auxiliary information (aux), which is vital for both tracking the sublattice rank and controlling the overall computational running time to ensure efficiency.
+
+Crucially, the recursion must terminate. When the algorithm reaches a lattice (L) with a sufficiently small rank (n≈k), the framework switches from the recursive search to an optimized, known algorithm (acting as an oracle) to find the shortest vector efficiently. By balancing the depth of the recursive search with the final, high-performance base-case solver, the proposed recursive framework achieves a significant result: 
+
+This is the motivation.
+
+## How serious are quantum computers?
 
 The question of quantum computing has been discussed from many angles. Some argue the ’fear’ of a post-quantum world is not needed, due to the vanishing likelihood of a quantum computer being capable of functioning [37]. Others have argued that AI and Quantum-Cryptography should be used in conjunction to solve large, complex problems with the use of AI algorithms secured with unbreakable cryptography, for cryptoanalysis, understanding better optimisations and providing more accurate answers [36]. These are yet to be proved [36]. In fact, at the point of writing, new standards in PQC have not even been out for a whole year, and many are still being developed. 
 
