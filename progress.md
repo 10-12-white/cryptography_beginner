@@ -26,6 +26,15 @@ Learning with errors poses a way that we can create a secret key, and with this,
 
 First of all, we note: the real points on her lattice are established from the basis vectors that she used to create the lattice. There is no way of knowing what basis vectors were use to create those points as there are many that could have created it, but, Bob has access to (many) equations that are listed as being solvable under the conditions of this basis vectors. He can use this information, as well as the point, that Alice pub- lishes, to find the ”closest point” [7, 10].
 
+## Newest moves on this project
+
+https://arxiv.org/html/2502.05160v1
+
+https://eprint.iacr.org/2017/730.pdf
+
+https://csrc.nist.gov/csrc/media/Events/2022/fourth-pqc-standardization-conference/documents/papers/practical-improvements-on-bkz-algorithm-pqc2022.pdf
+
+
 ### References
 
 7] Jean-Philippe Aumasson, Serious Cryptography, 2nd Edition, ”A Practical Introduction to Modern Encryption” August 2024, ISBN-13: 9781718503847 
