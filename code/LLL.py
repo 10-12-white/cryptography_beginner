@@ -1,7 +1,10 @@
+# python, and can be SageMaths because there is a version of the SageMaths that is possible also
+
 import numpy as np
 
+# this takes in the basis vectors of the lattice basis
+# then we will compute this based on a delta, which is our "loose" factor that allows our fraction that is not too loose, or not too tight
 def LLL_alg(basis_vectors, delta=0.75):
-    # Convert input vectors
     # The input basis_vectors are a list of lists
     B = [np.array(v, dtype=float) for v in basis_vectors]
     d = len(B) # Dimension of the lattice basis
@@ -11,12 +14,13 @@ def LLL_alg(basis_vectors, delta=0.75):
     Mu = np.zeros((d, d), dtype=float)
 
     #Size-reduces b_k with respect to b_j by updating B[k].
-    #The Mu matrix is updated for row k.    
+    #The Mu matrix is updated for row k, which is needed
     def size_reduce(B, B_star, Mu, k, j):
         # The coefficient mu_k, j
         mu_kj = Mu[k, j]
 
-        # Calculate the integer k to subtract: k = round(mu_k, j)
+        # The integer k to subtract: k = round(mu_k, j)
+        # rounded because we are in integer lattice
         k_int = np.round(mu_kj)
 
         # Perform the reduction if k_int is non-zero
@@ -78,7 +82,7 @@ def LLL_alg(basis_vectors, delta=0.75):
         
         mu_k_k_minus_1 = Mu[k, k-1]
         
-        # The condition is: delta * ||b_k*||^2 > ||b_{k-1}^*||^2 * (delta - mu_{k, k-1}^2)
+        # delta * ||b_k*||^2 > ||b_{k-1}^*||^2 * (delta - mu_{k, k-1}^2)
         # We will use the common form: 
         lovasz_satisfied = (delta * norm_sq_k) >= \
                            (norm_sq_k_minus_1 + (mu_k_k_minus_1**2 * norm_sq_k_minus_1))
