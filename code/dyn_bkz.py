@@ -152,9 +152,11 @@ def BKZ_alg(basis_vectors, blocksize, delta=0.75):
 
 # TESTING Usage:
 basis_list = [[1, 1, 1], [-1, 0, 2], [3, 5, 6]] 
+# should get back [][][]
 reduced_basis1 = LLL_alg(basis_list)
 
 basis_vectors = [[1,1],[1,100]]
+# should get back 0,1, -49,50
 reduced_basis2 = LLL_alg(basis_vectors)
 
 print(f"My vector basis was:\n{basis_list}")
