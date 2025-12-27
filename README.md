@@ -4,6 +4,9 @@
 - Make a list of links between lattice reduction reduction (yes its said like that) to LLL
 - Reduce complexity of the programming style reviewed in this paper
 - Understand the maths in it
+- Write up LLL
+- Write up BKZ
+- focus on lattice-reductin-reductions
 - Present
 
 ## The focus for this work: via https://arxiv.org/pdf/2311.15064#cite.micciancioPracticalPredictableLattice2016
