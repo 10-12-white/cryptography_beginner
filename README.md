@@ -8,6 +8,7 @@
 - Write up BKZ
 - focus on lattice-reductin-reductions
 - Present
+- finish up the chaoter
 
 ## The focus for this work: via https://arxiv.org/pdf/2311.15064#cite.micciancioPracticalPredictableLattice2016
 
