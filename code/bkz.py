@@ -18,6 +18,7 @@ def BKZ_alg(basis_vectors, blocksize, delta=0.75):
     B_star = [np.zeros_like(B[0], dtype=float) for _ in range(d)]
     Mu = np.zeros((d, d), dtype=float)
 
+    # mostly the LLL stuff stays the same because we expect this to be like this
     #Size-reduces b_k with respect to b_j by updating B[k].
     #The Mu matrix is updated for row k, which is needed
     def size_reduce(B, B_star, Mu, k, j):
