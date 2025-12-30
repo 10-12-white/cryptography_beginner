@@ -32,9 +32,8 @@ This makes LWE a leading candidate for building cryptographic systems, and in fa
 
 Learning with errors poses a way that we can create a secret key, and with this, use this information to publish a key that contains the location to a point close to, say, Alice’s real point. If we consider the lattice shown above in Figure 5, it is very clear that each point in the lattice is accessible by Alice by using her basis vectors [7].
 
-### But what about a point that is near her lattice?
 
-First of all, we note: the real points on her lattice are established from the basis vectors that she used to create the lattice. There is no way of knowing what basis vectors were use to create those points as there are many that could have created it, but, Bob has access to (many) equations that are listed as being solvable under the conditions of this basis vectors. He can use this information, as well as the point, that Alice pub- lishes, to find the ”closest point” [7, 10].
+
 
 ### References
 
