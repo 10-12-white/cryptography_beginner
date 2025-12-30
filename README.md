@@ -1,16 +1,7 @@
 
 # Project Motivation
 
-- Make a list of links between lattice reduction reduction (yes its said like that) to LLL
-- Reduce complexity of the programming style reviewed in this paper
-- Understand the maths in it
-- Write up LLL
-- Write up BKZ
-- focus on lattice-reductin-reductions
-- Present
-- finish up the chaoter
-
-## The focus for this work: via https://arxiv.org/pdf/2311.15064#cite.micciancioPracticalPredictableLattice2016
+The focus of this work is via https://arxiv.org/pdf/2311.15064#cite.micciancioPracticalPredictableLattice2016
 
 This paper, the main motivation for this project, introduces a recursive lattice reduction framework designed to solve two core problems in lattice theory: finding the shortest non-zero vector (SVP) and locating dense sublattices within a larger lattice. The central idea is to try and break down the larger problem on a high-rank lattice into simpler, lower-rank subproblems. This is achieved through an iterative process of finding dense sublattices within dense sublattices (or their duals), where the rank progressively decreases at each step.  This method provides an elegant and effective approach to handle the task of fidning solutions within these higher ranked lattices.
 
@@ -20,20 +11,22 @@ The formal algorithm, A(L,aux), demonstrates how this recursion works in practic
 
 Crucially, the recursion must terminate. When the algorithm reaches a lattice (L) with a sufficiently small rank (n≈k), the framework switches from the recursive search to an optimized, known algorithm (acting as an oracle) to find the shortest vector efficiently. By balancing the depth of the recursive search with the final, high-performance base-case solver, the proposed recursive framework achieves a significant result: 
 
-This is the motivation.
+This is the motivation.  How can we use this information about sublattices to improve the efficiency of BKZ, or another sorting algorithm, that helps reduce the overall size of the basis vectors.  And in fact, the apper poses many open questions.  Such as, is there a way of making them comparable?  How efficient is this algorithm in comparison to BKZ, LLL? Does it do a similar job?  The code for the project is prpvided in their GitHub, available here: {PROVIDE_LINK}.  But, the authord acknowledge that efficiencies within the code was not their first priority - can we make it faster? If so, how?
 
-# Lattice based systems
-
-## Learning with Errors
-
-The computational hardness of the LWE problem is a crucial property for its use in cryptography. It is believed to be quantum-resistant, meaning that even powerful quantum computers would not be able to solve it efficiently.
-
-This makes LWE a leading candidate for building cryptographic systems, and in fact is used in the WOTS+ system of encryption that is used in KYBER standard more broadly, which has been recently approved to be used as a Post-Quantum Cryptographic method.
-
-Learning with errors poses a way that we can create a secret key, and with this, use this information to publish a key that contains the location to a point close to, say, Alice’s real point. If we consider the lattice shown above in Figure 5, it is very clear that each point in the lattice is accessible by Alice by using her basis vectors [7].
-
+- Make a list of links between lattice reduction reduction (yes its said like that) to LLL
+- Reduce complexity of the programming style reviewed in this paper
+- Understand the maths in it
+- Write up LLL
+- Write up BKZ
+- focus on lattice-reductin-reductions
+- Present
+- finish up the chaoter
 
 
+
+## Contributions
+
+In this repo, there is code for LLL. Have a play, see if you can make it faster.  Values have already been tested to ensure it is performing like SageMaths baked in biscuit-tin LLL, which is great.  We have not yet done the same with BKZ, this is the next step.
 
 ### References
 
