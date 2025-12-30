@@ -64,12 +64,15 @@ The 2025 Australian Quantum-Resistant Cybersecurity (AusQRC) Day was a day confe
 
 Specifically, the ASD endorses the lattice-based ML-KEM (Module-Lattice-Based Key-Encapsulation Mechanism), noting that the imperative of quantum-safety warrants the overhead. The government is prioritising future-proofing long-lived data systems against the "harvest now, decrypt later" threat, despite the associated operational costs and performance impact. The ASD generally encourages a pure-PQC transition by its 2030 goal, favouring the higher security level ML-KEM-1024 for long-term use, while accepting ML-KEM-768 until 2030.
 
-Global Standards and Trust Landscape
+### Global Standards and Trust Landscape
+
 The global landscape of cryptographic standards is divided between adherence to NIST-selected algorithms and independent national security mandates. While many countries align with NIST PQC standards, key nations maintain unique, stringent standards for their classified systems.
 * United States: Driven by NIST for public standards and the NSA (via CNSA 2.0) for classified systems, the US sets a pure PQC requirement for National Security Systems (NSS) by 2035, viewing hybrid schemes strictly as an interim measure. 
-* European Union/Germany/France: Bodies like the German BSI and French ANSSI recommend NIST algorithms but also endorse alternatives (e.g., FrodoKEM, Classic McEliece) for diversification and actively recommend hybrid schemes during the transition, reflecting a more flexible policy than the US long-term goal. 
-* China and South Korea: Both nations have pursued developing and standardising their own national PQC algorithms separate from the NIST process (e.g., South Korea's HAETAE and China's domestic candidates), reflecting a priority for digital sovereignty and national control over cryptographic assurance. 
-Major Challenges and Transition Impact
+* European Union/Germany/France: Bodies like the German BSI and French ANSSI recommend NIST algorithms but also endorse alternatives (e.g., FrodoKEM, Classic McEliece) for diversification and actively recommend hybrid schemes during the transition. 
+* China and South Korea: Both nations have pursued developing and standardising their own national PQC algorithms separate from the NIST process (e.g., South Korea's HAETAE and China's domestic candidates), reflecting a priority for digital sovereignty. 
+
+### Major Challenges and Transition Impact
+
 The overall transition to PQC presents significant operational and financial challenges:
 * Resource and Cost Overheads: The shift, particularly to lattice-based cryptography, demands an estimated 30x increase in memory for some applications. 
 * Data Footprint: PQC schemes generally involve significantly longer cryptographic keys and signatures, impacting data storage and transmission protocols. 
@@ -78,14 +81,14 @@ Strategic Solutions and Timelines
 The conference emphasised practical solutions and set expectations for the migration:
 * Hybrid Schemes: The use of hybrid cryptographic schemes (combining classical and PQC algorithms) is considered a sound and necessary transitional strategy to manage risk and security during the changeover period. 
 * Authentication Advancement: The increasing use of Merkle tree authentication was noted as a valuable technique to provide an extra layer of integrity and authenticity to digital signatures. 
-* The 2030 Goal: The consensus is that 2030 represents an ambitious, possibly unachievable, deadline for a complete transition across all industries, depending on the current state of industry r
-* https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/ism/cyber-security-guidelines/guidelines-for-cryptographyeadiness. A phased, measured approach that prioritises critical and long-lived data systems is required. 
-
-
+* The 2030 Goal: The consensus is that 2030 represents an ambitious, deadline for a complete transition across all industries, depending on the current state of industry
+* A phased, measured approach that prioritises critical and long-lived data systems is required. 
 
 ### References
 
-7] Jean-Philippe Aumasson, Serious Cryptography, 2nd Edition, ”A Practical Introduction to Modern Encryption” August 2024, ISBN-13: 9781718503847 
+[6] Australian Government, "Cybersecurity, Guideines for Cryptography Readiness"  updated August 2025  https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/ism/cyber-security-guidelines/guidelines-for-cryptographyeadiness,
+
+[7] Jean-Philippe Aumasson, Serious Cryptography, 2nd Edition, ”A Practical Introduction to Modern Encryption” August 2024, ISBN-13: 9781718503847 
 
 [8] Algorithms for the Closest and Shortest Vector Problems, Mathematics of University of Auckland, https://www.math.auckland.ac.nz/ sgal018/crypto-book/ch18.pdf
 
