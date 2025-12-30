@@ -7,7 +7,8 @@
 import numpy as np
 
 # this takes in the basis vectors of the lattice basis
-# then we will compute this based on a delta, which is our "loose" factor that allows our fraction that is not too loose, or not too tight
+# then we will compute this based on a delta, which is our "loose" 
+# factor that allows our fraction that is not too loose, or not too tight
 # block size included because change from LL to BKZ is this
 def BKZ_alg(basis_vectors, blocksize, delta=0.75):
     # The input basis_vectors are a list of lists
