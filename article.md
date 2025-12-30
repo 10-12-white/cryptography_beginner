@@ -2,20 +2,19 @@
 
 ## Introduction to quantum computing
 
-This report goes into what is quantum computing, and how could it impact modern day encryption, and how can lattice-based cryptography provide protections against this. It explores the ideas underpinning how we see the new age of computing, in light of the cybersecurity challenge of quantum computers, and how these can be mitigated by Post-Quantum Cryptography (PQC) and how lattice-based cryptography can help secure people’s data now and into the future.
+This report explores the ideas underpinning how we see the new age of computing, the cybersecurity challenge of quantum computers, and how these can be mitigated by Post-Quantum Cryptography (PQC) and how lattice-based cryptography can help secure people’s data now and into the future.
 
 Also note that this special class of problems is very new, as only in 2025 March this year was a 50-Qubit quantum computer completed in Finland, Europe’s first research-based quantum computer and a huge undertaking of over 5 years. Though this quiet landmark achievement took place earlier this year, it marks Europe’s first 50-qubit superconducting quantum computer, which is now open to researchers and companies through the VTT QX quantum computing service [6]. Whilst still being test and researched, the way forward has already shown PQC will be needed more than ever.
 
 Quantum computing is a field of computing that doesn’t use the normal system of Turing Machine style computers, but rather, uses the principles of quantum mechanics, like superposition and entanglement, to perform complex calculations. Unlike classical computers that use bits (0s or 1s), quantum computers use qubits which can exist in multiple states simultaneously. This allows them to process vast amounts of data and solve certain problems exponentially faster than even the most powerful supercomputers [11
 
-To give a bit of a background, supercomputers are still just normal computers, except that they have a very large number of processes, able to compute into the order of 1015 calculations per second.
+To give a bit of a background, supercomputers are still just "normal" computers, except that they have a very large number of processes, able to compute into the order of 10^15 calculations per second.
 
 Because quantum computers are believed to be able to compute beyond our current understanding and capabilities, they are thought to pose a real threat to modern-day encryption, particularly public-key cryptography like RSA and Elliptic Curve Cryptography (ECC) [11, 14]. These algorithms rely on mathematical problems that are currently computationally infeasible for classical computers to solve, such as factoring large numbers or solving discrete logarithms.  
 
-Symmetric-key cryptography like AES is less affected, because the appropriate algorithm for breaking this would be Grover’s algorithm [11]. And, whilst it speeds up the brute-force attacks on these ciphers, it is still not fast enough and can be mitigated by changing the size of the key. Algorithms like Shor’s run in a supercomputer, however, threaten the security of public-key cryptography algorithms and could break these very quickly, rendering modern encryption obsolete. This threat is a major concern, as it would compromise the security of secure web traffic (HTTPS), digital signatures, and financial transactions [14]. It would fundamentally change the way that the internet works, and the way we perform all kinds of modern encryption
+Symmetric-key cryptography like AES is less affected, because the appropriate algorithm for breaking this would be Grover’s algorithm [11]. And, whilst it speeds up the brute-force attacks on these ciphers, it is still not fast enough and can be mitigated by changing the size of the key. Algorithms like Shor’s run in a supercomputer, however, threaten the security of public-key cryptography algorithms and could break these very quickly, rendering modern encryption obsolete. This threat is a major concern, as it would compromise the security of secure web traffic (HTTPS), digital signatures, and financial transactions [14]. It would fundamentally change the way that things like online banking works, and the way we perform all kinds of modern encryption
 
-This means that finding a new method of encryption is incredibly important, as quantum computers become
-more and more likely.
+This means that finding a new method of encryption is incredibly important, as quantum computers become more and more likely.
 
 ## How likely are quantum computers?
 
@@ -46,7 +45,7 @@ to the current digital signature scheme [33, 34, 30, 31]. While not lattice-base
 
 ### Protecting against ”Harvest Now, Decrypt Later” Threat
 
-A key driver for immediate action is the concept of ”harvest now, decrypt later.” This is a popular approach because of the future gain associated with the product - sensitive encrypted data [33, 34, 30, 35, 29]. Malicious actors, including nation-states, are already stockpiling vast amounts of encrypted data that they cannot currently decrypt. The goal being, once they are able to access a sufficiently powerful quantum computer, they can decrypt all this sensitive data, which would inevitably lead to one of the largest data breaches globally. Therefore, protecting against this is imperative with early adoption.
+A key driver for immediate uptake of PQC algorothms is the concept of ”harvest now, decrypt later.” This is a popular approach because of the future gain associated with the product - sensitive encrypted data [33, 34, 30, 35, 29]. Malicious actors, including nation-states, are already stockpiling vast amounts of encrypted data that they cannot currently decrypt. The goal being, once they are able to access a sufficiently powerful quantum computer, they can decrypt all this sensitive data, which would inevitably lead to one of the largest data breaches globally. Therefore, protecting against this is imperative with early adoption.
 
 ## The Challenges of Transitioning to PQC
 
