@@ -2,7 +2,7 @@
 
 ## Introduction to quantum computing
 
-This research report goes into what is quantum computing, and how could it impact modern day encryption, and how can lattice-based cryptography provide protections against this. It explores the ideas underpinning how we see the new age of computing, in light of the cybersecurity challenge of quantum computers, and how these can be mitigated by Post-Quantum Cryptography (PQC) and how lattice-based cryptography can help secure people’s data now and into the future.
+This report goes into what is quantum computing, and how could it impact modern day encryption, and how can lattice-based cryptography provide protections against this. It explores the ideas underpinning how we see the new age of computing, in light of the cybersecurity challenge of quantum computers, and how these can be mitigated by Post-Quantum Cryptography (PQC) and how lattice-based cryptography can help secure people’s data now and into the future.
 
 Also note that this special class of problems is very new, as only in 2025 March this year was a 50-Qubit quantum computer completed in Finland, Europe’s first research-based quantum computer and a huge undertaking of over 5 years. Though this quiet landmark achievement took place earlier this year, it marks Europe’s first 50-qubit superconducting quantum computer, which is now open to researchers and companies through the VTT QX quantum computing service [6]. Whilst still being test and researched, the way forward has already shown PQC will be needed more than ever.
 
@@ -57,6 +57,30 @@ There is a lack of cryptographic flexibility holding back organisations: many co
 While the focus is on a full migration to PQC, hybrid quantum-classical algorithms are emerging as a crucial stepping stone and a long-term solution. These algorithms, which combine the strengths of both classical and quantum computers, are particularly relevant in the ”Noisy Intermediate-Scale Quantum” (NISQ) era [33, 34, 22], where quantum-computers have yet to achieve their peak potential, largely because of all the noisy errors they are generating [22]. Hybrid algorithms use some components of lattice-based cryptography or other areas of mathematics like the previously named hash functions) for use in their functions, which allows companies, organisations and peak bodies make half the transition necessary to fully post-quantum encryption algorithms [22, 33]. 
 
 This is considered computationally much less expensive, more practical, and easier for companies and governments to start working towards now.  Also, the benefits from doing this are likely to bring longer decryption times to any data stored away from harvesting, so is a practical measure that can be taken almost immediately [34, 22, 35].
+
+## AusQRC (December 8th, 2025)
+
+The 2025 Australian Quantum-Resistant Cybersecurity (AusQRC) Day was a day conference that highlighted the critical challenges and strategic direction for migrating to Post-Quantum Cryptography (PQC). The Australian government, through the Australian Signals Directorate (ASD), has signalled alignment with NIST PQC standards as the most suitable cryptographic security framework for national requirements. 
+
+Specifically, the ASD endorses the lattice-based ML-KEM (Module-Lattice-Based Key-Encapsulation Mechanism), noting that the imperative of quantum-safety warrants the overhead. The government is prioritising future-proofing long-lived data systems against the "harvest now, decrypt later" threat, despite the associated operational costs and performance impact. The ASD generally encourages a pure-PQC transition by its 2030 goal, favouring the higher security level ML-KEM-1024 for long-term use, while accepting ML-KEM-768 until 2030.
+
+Global Standards and Trust Landscape
+The global landscape of cryptographic standards is divided between adherence to NIST-selected algorithms and independent national security mandates. While many countries align with NIST PQC standards, key nations maintain unique, stringent standards for their classified systems.
+* United States: Driven by NIST for public standards and the NSA (via CNSA 2.0) for classified systems, the US sets a pure PQC requirement for National Security Systems (NSS) by 2035, viewing hybrid schemes strictly as an interim measure. 
+* European Union/Germany/France: Bodies like the German BSI and French ANSSI recommend NIST algorithms but also endorse alternatives (e.g., FrodoKEM, Classic McEliece) for diversification and actively recommend hybrid schemes during the transition, reflecting a more flexible policy than the US long-term goal. 
+* China and South Korea: Both nations have pursued developing and standardising their own national PQC algorithms separate from the NIST process (e.g., South Korea's HAETAE and China's domestic candidates), reflecting a priority for digital sovereignty and national control over cryptographic assurance. 
+Major Challenges and Transition Impact
+The overall transition to PQC presents significant operational and financial challenges:
+* Resource and Cost Overheads: The shift, particularly to lattice-based cryptography, demands an estimated 30x increase in memory for some applications. 
+* Data Footprint: PQC schemes generally involve significantly longer cryptographic keys and signatures, impacting data storage and transmission protocols. 
+* Implementation and Interoperability: Hurdles include updating codebases, ensuring backwards compatibility, and navigating the issue of multiple global standards to enforce a consistent security baseline. The risk of backwards-forcing attacks against PQC schemes is a strong motivator for a coordinated, enforced standard. 
+Strategic Solutions and Timelines
+The conference emphasised practical solutions and set expectations for the migration:
+* Hybrid Schemes: The use of hybrid cryptographic schemes (combining classical and PQC algorithms) is considered a sound and necessary transitional strategy to manage risk and security during the changeover period. 
+* Authentication Advancement: The increasing use of Merkle tree authentication was noted as a valuable technique to provide an extra layer of integrity and authenticity to digital signatures. 
+* The 2030 Goal: The consensus is that 2030 represents an ambitious, possibly unachievable, deadline for a complete transition across all industries, depending on the current state of industry r
+* https://www.cyber.gov.au/business-government/asds-cyber-security-frameworks/ism/cyber-security-guidelines/guidelines-for-cryptographyeadiness. A phased, measured approach that prioritises critical and long-lived data systems is required. 
+
 
 
 ### References
