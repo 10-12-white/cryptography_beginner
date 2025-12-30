@@ -13,6 +13,8 @@ Crucially, the recursion must terminate. When the algorithm reaches a lattice (L
 
 This is the motivation.  How can we use this information about sublattices to improve the efficiency of BKZ, or another sorting algorithm, that helps reduce the overall size of the basis vectors.  And in fact, the apper poses many open questions.  Such as, is there a way of making them comparable?  How efficient is this algorithm in comparison to BKZ, LLL? Does it do a similar job?  The code for the project is prpvided in their GitHub, available here: {PROVIDE_LINK}.  But, the authord acknowledge that efficiencies within the code was not their first priority - can we make it faster? If so, how?
 
+## Project Gaols
+
 - Make a list of links between lattice reduction reduction (yes its said like that) to LLL
 - Reduce complexity of the programming style reviewed in this paper
 - Understand the maths in it
@@ -23,10 +25,9 @@ This is the motivation.  How can we use this information about sublattices to im
 - finish up the chaoter
 
 
-
 ## Contributions
 
-In this repo, there is code for LLL. Have a play, see if you can make it faster.  Values have already been tested to ensure it is performing like SageMaths baked in biscuit-tin LLL, which is great.  We have not yet done the same with BKZ, this is the next step.
+In this repo, there is code for LLL. Have a play, see if you can make it faster.  Values have already been tested to ensure it is performing like SageMaths baked in biscuit-tin LLL, which is great.  We have not yet done the same with BKZ, this is the next step.  The maths for it has been understood, and its been written up in an Overleaf.  Will be getting to sharing it in due time.  For now, working on the way that we see the next stage of our progress going...
 
 ### References
 
