@@ -140,4 +140,19 @@ For a lattice basis L and a block size k:
             SVP Oracle: Find the absolute shortest vector (v) in this small h-dimensional projected lattice. HiHLYI EXPENSIVE
             Update: If this new vector v is shorter than the current bi​, insert it into the basis.  NOTE: IF 
             Local LLL: Because you just added a vector, the basis is now "linearly dependent" (too many vectors). Run LLL on this local block to remove the dependency and clean up the vectors.
+
+    MAtches project overleaf documentation: 
+    Algorithm 4 The basic BKZ algorithm
+    Input: basis vectors b1, . . . , bn for a lattice
+    Output: a BKZ-shortened lattice basis b1, . . . , bn
+    while the last epoch did a nontrivial insertion do
+        for i = 1, 2, . . . , n − 1 do
+    h ← min(i + k − 1, n) {Block size k}
+    v ← FullEnumeration(L[i,h])
+            if ∥v∥ < δ∥bi∥ then
+            LLL(. . . ) {Updating the basis }
+            end if
+        end for
+    end while
+
 """
