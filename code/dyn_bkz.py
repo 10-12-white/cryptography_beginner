@@ -38,7 +38,8 @@ Probability helper: What chance do I have that this is better? If not, skip
 Pruner helper:  It calculates a "pruning bounding function" dynamically for each block.
 It essentially says: "I am going to ignore 99.9% of this search tree. I might miss the absolute shortest vector, 
 but I will find a 'short enough' one 1,000 times faster."
-    
+
+Link to this: https://github.com/Summwer/pro-pnj-bkz for inspiration
 """
 
 
