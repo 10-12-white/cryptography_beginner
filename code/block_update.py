@@ -21,5 +21,6 @@ def dual_block_reduction(basis, block_start, block_size):
                        flags=BKZ.DUAL_REDUCTION)
     
     BKZ.Reduction(gso, LLL.Wrapper(gso), params)()
-    
+
+    # return for the next component in the program
     return basis
