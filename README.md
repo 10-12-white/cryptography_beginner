@@ -37,6 +37,9 @@ This is the motivation.  How can we use this information about sublattices to im
 - awaiting chaoter review
 - awaiting inspiration for the next moves made
 - work on the maths behind enum in SVP
+- how can we measure wastage in the SVP solver for BKZ2.0
+- What is reduction in efforts as opposed to using Dual-Intuitive BKZ (DIBKZ)
+- how can measure in a bai-galbaith lattice?
 
 
 ## Contributions
