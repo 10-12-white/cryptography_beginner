@@ -28,6 +28,8 @@ For a lattice basis L and a block size k:
 
 3 Helper functions:
 
+LLL tuner from the first run through
+
 Block-Chunker-Decider: Before solving a block of size k with the SVP Oracle, 
 BKZ 2.0 will recursively call a smaller BKZ (say, size k−10) on that local block.
 It doesn't do this for every block. It decides whether to preprocess based on the current "state" of the basis.
@@ -40,7 +42,11 @@ It essentially says: "I am going to ignore 99.9% of this search tree. I might mi
 but I will find a 'short enough' one 1,000 times faster."
 
 Link to this: https://github.com/Summwer/pro-pnj-bkz for inspiration
+
+There is different probabilities for each block
 """
+
+
 
 
 
