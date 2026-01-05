@@ -30,13 +30,15 @@ This is the motivation.  How can we use this information about sublattices to im
 - AMSI presentation slides nearly done
 - written backlog up
 - worked on review
+- review on the slides
+- review on the chapter
   
 ### Left to do
 
 - awaiting supervisor review
-- awaiting chaoter review
 - awaiting inspiration for the next moves made
 - work on the maths behind enum in SVP
+- message AMSI for supervisors on project
 - how can we measure wastage in the SVP solver for BKZ2.0
 - What is reduction in efforts as opposed to using Dual-Intuitive BKZ (DIBKZ)
 - Find good example lattice basis to construct within
