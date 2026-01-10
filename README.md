@@ -26,28 +26,36 @@ This is the motivation.  How can we use this information about sublattices to im
 
 ### Done
 
-- chapter down to 20 pages
+- chapter down to 23 pages
 - AMSI presentation slides nearly done
 - written backlog up
 - worked on review
 - review on the slides
 - review on the chapter
-  
-### Left to do
-
-- awaiting supervisor review
 - awaiting inspiration for the next moves made
+- writeup bk2 2.0
+- write up dual-bkz 2.0
+  
+### Left to do Jan
+
+- awaiting supervisor review for chapter
+- waiting for supervisor review on AMSI presentation first
+- awaing for changes on next slides
+- edit code for dual-intuitive bkz 2.0
 - work on the maths behind enum in SVP
 - message AMSI for supervisors on project
 - how can we measure wastage in the SVP solver for BKZ2.0
 - What is reduction in efforts as opposed to using Dual-Intuitive BKZ (DIBKZ)
 - Find good example lattice basis to construct within
 
+### Left to do Feb
+
+- present
+- practise present
+
 ## Contributions
 
 In this repo, there is code for LLL. Have a play, see if you can make it faster.  Values have already been tested to ensure it is performing like SageMaths baked in biscuit-tin LLL, which is great.  We have not yet done the same with BKZ, this is the next step.  The maths for it has been understood, and its been written up in an Overleaf.  Will be getting to sharing it in due time.  For now, working on the way that we see the next stage of our progress going...
-
-
 
 
 
