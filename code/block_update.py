@@ -23,4 +23,8 @@ def dual_block_reduction(basis, block_start, block_size):
     BKZ.Reduction(gso, LLL.Wrapper(gso), params)()
 
     # return for the next component in the program
+    # in otherwords, the basis has been computed in a faster technique than the way that was supposed
+    # from the methods using GSO from the dual, as opposed to returning to work on the lattice
+    # this is better than trying to solve in the space of primal, also
+    # computationally
     return basis
