@@ -35,23 +35,28 @@ This is the motivation.  How can we use this information about sublattices to im
 - awaiting inspiration for the next moves made
 - writeup bk2 2.0
 - write up dual-bkz 2.0
-  
-### Left to do Jan
-
-- awaiting supervisor review for chapter
+- awaiting supervisor review for chapter  
 - waiting for supervisor review on AMSI presentation first
 - awaing for changes on next slides
+
+### Left to do Jan
+
 - edit code for dual-intuitive bkz 2.0
 - work on the maths behind enum in SVP
 - message AMSI for supervisors on project
 - how can we measure wastage in the SVP solver for BKZ2.0
 - What is reduction in efforts as opposed to using Dual-Intuitive BKZ (DIBKZ)
-- Find good example lattice basis to construct within
+- Find good example lattice basis to construct within?
+- Introduce the SVP challenge to your supervisors
+- Work on trying to explain basic properties first
+- Read the edits, and then work on them so that you are getting better at it
+- practise presenting
 
 ### Left to do Feb
 
 - present
 - practise present
+
 
 ## Contributions
 
