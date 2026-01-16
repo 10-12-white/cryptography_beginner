@@ -12,3 +12,11 @@
 - introduce new changes, so that it is obvious what it is that you are trying to do
 - lattice will be LWE based because that is the direciton that we want to be working in
 - split algorithms
+- understand the difference between dual, slide dual and the normal BKZ progress
+
+  ### What I have done
+  - presented at least once
+  - worked on how I written parts of the work
+  - included the notes of supervisors in these sections
+  - worked on my understanding of mathematics
+  - 
