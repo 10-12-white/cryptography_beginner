@@ -6,11 +6,70 @@
 
 import numpy as np
 
+from itertools import product
+from fpylll import IntegerMatrix, shortest_vector
+
 # this takes in the basis vectors of the lattice basis
 # then we will compute this based on a delta, which is our "loose" 
 # factor that allows our fraction that is not too loose, or not too tight
 # block size included because change from LL to BKZ is this
-def BKZ_alg(basis_vectors, blocksize, delta=0.75):
+
+def compute_gso(B, B_star, Mu, k):
+    #Computes/updates the Gram-Schmidt components (B_star, Mu) for vector B[k]
+    #with respect to all previous orthogonal vectors B_star[j] for j < k.
+    b_k = B[k]
+    b_star_k = b_k.copy()
+
+    # Iterate through all preceding vectors j = 0 to k-1
+    for j in range(k):
+        # Calculate mu_k, j
+        # Inner product of the vector b_k and the orthogonal vector b_j*
+        mu_kj = np.dot(b_k, B_star[j]) / np.dot(B_star[j], B_star[j])
+    
+        Mu[k, j] = mu_kj
+    
+        # Calculate b_k* = b_k - sum_{j=0}^{k-1} mu_k, j * b_j*
+        b_star_k -= mu_kj * B_star[j]
+
+    B_star[k] = b_star_k
+
+def size_reduce(B, B_star, Mu, k, j):
+    # The coefficient mu_k, j
+    mu_kj = Mu[k, j]
+
+    # The integer k to subtract: k = round(mu_k, j)
+    # rounded because we are in integer lattice
+    k_int = np.round(mu_kj)
+
+    # Perform the reduction if k_int is non-zero
+    if k_int != 0:
+        # Update the basis vector: b_k = b_k - k_int * b_j
+        B[k] -= k_int * B[j]
+        
+        # Update the GSO coefficient: mu_k, j = mu_k, j - k_int
+        Mu[k, j] = mu_kj - k_int
+        
+        # Then update all preceding coefficients Mu[k, l] for l < j
+        for l in range(j):
+            Mu[k, l] -= k_int * Mu[j, l]
+        
+        # Since b_k changed,  recompute b_k* (B_star[k]).
+        # The easiest way is to call the GSO function again for index k.
+        compute_gso(B, B_star, Mu, k)
+
+    # Return True if a reduction occurred, False otherwise
+    return k_int != 0
+
+def find_shortest_vector(subbasis):
+    if not subbasis:
+        return None
+    # Convert subbasis to IntegerMatrix
+    mat = IntegerMatrix.from_matrix([list(b.astype(int)) for b in subbasis])
+    # Use fplll's shortest_vector for exact SVP solving
+    sv = shortest_vector(mat)
+    return np.array(sv)
+
+def LLL_alg(basis_vectors, delta=0.75):
     # The input basis_vectors are a list of lists
     B = [np.array(v, dtype=float) for v in basis_vectors]
     d = len(B) # Dimension of the lattice basis
@@ -18,55 +77,6 @@ def BKZ_alg(basis_vectors, blocksize, delta=0.75):
     # Initialize GSO matrices
     B_star = [np.zeros_like(B[0], dtype=float) for _ in range(d)]
     Mu = np.zeros((d, d), dtype=float)
-
-    # mostly the LLL stuff stays the same because we expect this to be like this
-    #Size-reduces b_k with respect to b_j by updating B[k].
-    #The Mu matrix is updated for row k, which is needed
-    def size_reduce(B, B_star, Mu, k, j):
-        # The coefficient mu_k, j
-        mu_kj = Mu[k, j]
-
-        # The integer k to subtract: k = round(mu_k, j)
-        # rounded because we are in integer lattice
-        k_int = np.round(mu_kj)
-
-        # Perform the reduction if k_int is non-zero
-        if k_int != 0:
-            # Update the basis vector: b_k = b_k - k_int * b_j
-            B[k] -= k_int * B[j]
-        
-            # Update the GSO coefficient: mu_k, j = mu_k, j - k_int
-            Mu[k, j] = mu_kj - k_int
-        
-            # Then update all preceding coefficients Mu[k, l] for l < j
-            for l in range(j):
-                Mu[k, l] -= k_int * Mu[j, l]
-        
-            # Since b_k changed,  recompute b_k* (B_star[k]).
-            # The easiest way is to call the GSO function again for index k.
-            compute_gso(B, B_star, Mu, k)
-
-        # Return True if a reduction occurred, False otherwise
-        return k_int != 0
-    
-    def compute_gso(B, B_star, Mu, k):
-        #Computes/updates the Gram-Schmidt components (B_star, Mu) for vector B[k]
-        #with respect to all previous orthogonal vectors B_star[j] for j < k.
-        b_k = B[k]
-        b_star_k = b_k.copy()
-    
-        # Iterate through all preceding vectors j = 0 to k-1
-        for j in range(k):
-            # Calculate mu_k, j
-            # Inner product of the vector b_k and the orthogonal vector b_j*
-            mu_kj = np.dot(b_k, B_star[j]) / np.dot(B_star[j], B_star[j])
-        
-            Mu[k, j] = mu_kj
-        
-            # Calculate b_k* = b_k - sum_{j=0}^{k-1} mu_k, j * b_j*
-            b_star_k -= mu_kj * B_star[j]
-
-        B_star[k] = b_star_k
 
     # Compute initial GSO for the whole basis (only needed once), for this process
     for i in range(d):
@@ -105,7 +115,7 @@ def BKZ_alg(basis_vectors, blocksize, delta=0.75):
             # Since the basis changed, the GSO components are invalid.
             # We must update GSO for the affected vectors (k-1 and k).
             # The easiest way is to re-calculate GSO for both k-1 and k
-            # (Note: A more efficient method exists, but this is simpler).
+            #
             compute_gso(B, B_star, Mu, k - 1)
             compute_gso(B, B_star, Mu, k)
 
@@ -115,16 +125,43 @@ def BKZ_alg(basis_vectors, blocksize, delta=0.75):
     # Return the LLL-reduced basis as a list of numpy arrays
     return B
 
+def BKZ_alg(basis_vectors, blocksize, delta=0.75):
+    B = LLL_alg(basis_vectors, delta)
+    d = len(B)
+    B_star = [np.zeros_like(B[0]) for _ in range(d)]
+    Mu = np.zeros((d,d))
+    for i in range(d):
+        compute_gso(B, B_star, Mu, i)
+    changed = True
+    while changed:
+        changed = False
+        for i in range(1, d):
+            h = min(i + blocksize - 1, d)
+            subbasis = B[i:h+1]
+            v = find_shortest_vector(subbasis)
+            if v is not None:
+                norm_v = np.linalg.norm(v)
+                norm_bi = np.linalg.norm(B[i])
+                if norm_v < delta * norm_bi:
+                    B[i] = v
+                    sub_B = LLL_alg([b.tolist() for b in subbasis], delta)
+                    B[i:i+len(sub_B)] = sub_B
+                    # recompute GSO
+                    for j in range(d):
+                        compute_gso(B, B_star, Mu, j)
+                    changed = True
+    return B
+
 # TESTING Usage:
 basis_list = [[1, 1, 1], [-1, 0, 2], [3, 5, 6]] 
-reduced_basis1 = LLL_alg(basis_list)
+reduced_basis1 = BKZ_alg(basis_list)
 
 basis_vectors = [[1,1],[1,100]]
-reduced_basis2 = LLL_alg(basis_vectors)
+reduced_basis2 = BKZ_alg(basis_vectors)
 
 print(f"My vector basis was:\n{basis_list}")
 print("\nMy new LLL-reduced basis is (as numpy arrays):")
-for b in reduced_basis1:
+for b in basis_basis1:
     print(b)
 for b in reduced_basis2:
     print(b)
