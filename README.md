@@ -57,6 +57,13 @@ This is the motivation.  How can we use this information about sublattices to im
 - present
 - practise present
 
+### The shape of the different options:
+
+Algorithm,        Primary Advantage,      When to use for Research
+BKZ 2.0,          Pruning & Heuristics,   The standard baseline for most papers.
+Progressive BKZ,  Speed of Convergence,   When you want to show your algorithm is "fast."
+Sieve-BKZ (G6K),  Massive Blocksizes,     When testing against very high-dim challenges.
+Self-Dual BKZ,    GSA Consistency,        When you want the most "accurate" GSO profile.
 
 ## Contributions
 
