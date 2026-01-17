@@ -63,11 +63,12 @@ def size_reduce(B, B_star, Mu, k, j):
 def find_shortest_vector(subbasis):
     if not subbasis:
         return None
-    # Convert subbasis to IntegerMatrix
-    mat = IntegerMatrix.from_matrix([list(b.astype(int)) for b in subbasis])
-    # Use fplll's shortest_vector for exact SVP solving
+    # SVP Solver: This doesn't just run LLL. 
+    # It performs an "Enumeration" search to find the literal shortest vector.
+    mat = IntegerMatrix.from_matrix([list(map(int, b)) for b in subbasis])
     sv = shortest_vector(mat)
     return np.array(sv)
+
 
 def LLL_alg(basis_vectors, delta=0.75):
     # The input basis_vectors are a list of lists
@@ -126,38 +127,61 @@ def LLL_alg(basis_vectors, delta=0.75):
     return B
 
 def BKZ_alg(basis_vectors, blocksize, delta=0.75):
+    print(f"--- Starting BKZ with blocksize {blocksize} ---")
     B = LLL_alg(basis_vectors, delta)
     d = len(B)
     B_star = [np.zeros_like(B[0]) for _ in range(d)]
     Mu = np.zeros((d,d))
+    
     for i in range(d):
         compute_gso(B, B_star, Mu, i)
+        
     changed = True
+    tour_count = 0
     while changed:
+        tour_count += 1
         changed = False
-        for i in range(1, d):
-            h = min(i + blocksize - 1, d)
-            subbasis = B[i:h+1]
+        print(f"Starting Tour #{tour_count}...")
+        
+        for i in range(d - 1):
+            h = min(i + blocksize, d)
+            subbasis = B[i:h]
+            
+            # The "Oracle" call
             v = find_shortest_vector(subbasis)
-            if v is not None:
+            
+            if v is not None and np.any(v != 0):
                 norm_v = np.linalg.norm(v)
                 norm_bi = np.linalg.norm(B[i])
+                
+                # If the Oracle found something better than our current leading vector
                 if norm_v < delta * norm_bi:
                     B[i] = v
-                    sub_B = LLL_alg([b.tolist() for b in subbasis], delta)
-                    B[i:i+len(sub_B)] = sub_B
-                    # recompute GSO
+                    # Clean up the dependency created by inserting v
+                    # We cast to list for your LLL_alg implementation
+                    sub_list = [b.tolist() for b in B[i:h]]
+                    refined_sub = LLL_alg(sub_list, delta)
+                    B[i:i+len(refined_sub)] = [np.array(b) for b in refined_sub]
+                    
+                    # Refresh GSO for the whole basis after a change
                     for j in range(d):
                         compute_gso(B, B_star, Mu, j)
                     changed = True
+        
+    print(f"BKZ finished after {tour_count} tours.")
     return B
 
-# TESTING Usage:
+# --- FIXED TESTING BLOCK ---
 basis_list = [[1, 1, 1], [-1, 0, 2], [3, 5, 6]] 
-reduced_basis1 = BKZ_alg(basis_list)
+# Added the required blocksize argument (e.g., 2 or 3)
+reduced_basis1 = BKZ_alg(basis_list, blocksize=3)
 
-basis_vectors = [[1,1],[1,100]]
-reduced_basis2 = BKZ_alg(basis_vectors)
+print("\nFinal BKZ-reduced basis:")
+for b in reduced_basis1:
+    print(b)
+
+basis_list = [[105, 821, 432], [123, 456, 789], [234, 567, 890], [345, 678, 901]]
+reduced_basis2 = BKZ_alg(basis_list, blocksize=3)
 
 print(f"My vector basis was:\n{basis_list}")
 print("\nMy new LLL-reduced basis is (as numpy arrays):")
