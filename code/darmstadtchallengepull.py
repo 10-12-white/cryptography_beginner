@@ -6,7 +6,7 @@ import numpy as np
 from fpylll import IntegerMatrix
 
 # change the dimension as we get more and more confident in our methodolgy
-# this is for our good
+# this is for our experimentation down the track, but getting it set up now
 def load_darmstadt_challenge(dimension=200):
     """
     Testing library because we need to create experiments on SVP challenge instances.
@@ -44,6 +44,7 @@ def load_darmstadt_challenge(dimension=200):
 
     except Exception as e:
         print(f"Error loading challenge: {e}")
+        print(f"Unable to load Darmstadt challenge of dimension {dimension}.")
         return None
 
 # Example Usage:
