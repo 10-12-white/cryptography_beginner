@@ -1,4 +1,6 @@
 # edit to fplll is the backend and super fast
+# this idea of this program was to understand only the dual block reduction, and how this work
+# standalone and not in line with the other scripts
 from fpylll import LLL, BKZ, IntegerMatrix, GSO, SVP
 
 # dual_block_reduc done by Micciancio & Walter's Self-Dual BKZ

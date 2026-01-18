@@ -116,4 +116,7 @@ print("Comparison Results: ")
 print(f"BKZ 2.0: Time = {bkz2_time:.2f}s, Quality = {bkz2_quality}")
 print(f"My Alg: Time = {my_time:.2f}s, Quality = {my_quality}")
 
+# Step 4
 
+# Identify the cost for each of these ideas 
+# Verify in code that is is taking the time that I think it is
