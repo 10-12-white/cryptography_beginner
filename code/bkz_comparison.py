@@ -29,12 +29,12 @@ def get_bkz2_params(blocksize, max_loops=8):
         max_loops=max_loops, 
         flags=flags
     )
+    
     return params
+    # Setup: Dimension 60 is chosen due to time cost, and also, ways in which we can improve the final outcomes
 
-
-    # Setup: Dimension 60 is a good 'real' starting point
 dim = 60
-mat = load_svp_challenge(dim) # Your Darmstadt downloader
+mat = load_svp_challenge(dim) # Darmstadt downloader from earlierm will probs be in the same file but separate for now
 
 # --- STEP 1: BKZ 2.0 BASELINE ---
 mat_bkz2 = IntegerMatrix(mat) # Work on a copy
@@ -47,8 +47,32 @@ BKZ.reduction(mat_bkz2, params)
 bkz2_time = time.perf_counter() - start
 bkz2_quality = mat_bkz2[0].norm()
 
-# --- STEP 2: MY ALGORITHM (Mine)
+# --- STEP 2: MY ALGORITHM (To run on same DVP so that I can show comparison)
 
+# proposed ideas: dual lattice with same features as the BKZ 2.0 for more components,
+# but take into account that we will also use statistics that we pre-generate from running LLL first
+# this will be the dual lengths, because we can use the dual function to calculate the length of the primal vectors, and the other way around
+# we can also grab the Geometric Series from the LLL step
+# we can also grab the GSO coefficients from the LL step to help with pruning
 
+mat_my = IntegerMatrix(mat) # Work on a copy
+start = time.perf_counter()
+LLL.reduction(mat_my) # Preprocess with LLL
+gso = GSO.Mat(mat_my)
+dual_lengths = [gso.get_dual_length(i) for i in range(dim)]
+# if the lengths are smaller, then the dual is easier to work in
+# then we work in the dual for this component of the BKZ block
+if dual_lengths[0] < mat_my[0].norm():
+    gso.update_gso()
+    # proceed with dual BKZ block reduction using my proposed method
+    run_my_bkz_block_reduction(mat_my, gso, dual=True)
+    else:
+    # proceed with primal BKZ block reduction using my proposed method
+    run_my_bkz_block_reduction(mat_my, gso, dual=False)
+my_time = time.perf_counter() - start
+my_quality = mat_my[0].norm()
 
 # --- STEP 3: COMPARE
+print("Comparison Results: ")
+print(f"BKZ 2.0: Time = {bkz2_time:.2f}s, Quality = {bkz2_quality}")
+print(f"My Alg: Time = {my_time:.2f}s, Quality = {my_quality}")
