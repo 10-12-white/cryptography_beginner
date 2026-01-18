@@ -55,10 +55,21 @@ bkz2_quality = mat_bkz2[0].norm()
 # we can also grab the Geometric Series from the LLL step
 # we can also grab the GSO coefficients from the LL step to help with pruning
 
-mat_my = IntegerMatrix(mat) # Work on a copy
+
+mat_my = IntegerMatrix(mat) # Work on a copy STILL IN PROG
 start = time.perf_counter()
 LLL.reduction(mat_my) # Preprocess with LLL
 gso = GSO.Mat(mat_my)
+blocksizeintial = 40
+# start a normal BKZ loop
+for block_start in range(0, dim, blocksizeintial):
+    block_end = min(block_start + blocksizeintial, dim)
+    block_size = block_end - block_start
+    # extract the GSO for this block
+    gso_block = gso.get_block(block_start, block_end)
+    # compute dual lengths for this block
+    # next bit in a second...
+
 dual_lengths = [gso.get_dual_length(i) for i in range(dim)]
 # if the lengths are smaller, then the dual is easier to work in
 # then we work in the dual for this component of the BKZ block
@@ -76,3 +87,5 @@ my_quality = mat_my[0].norm()
 print("Comparison Results: ")
 print(f"BKZ 2.0: Time = {bkz2_time:.2f}s, Quality = {bkz2_quality}")
 print(f"My Alg: Time = {my_time:.2f}s, Quality = {my_quality}")
+
+
