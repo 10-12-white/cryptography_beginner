@@ -8,8 +8,8 @@
 # I will use BKZ 2.0 to compare, NOT inclusive of the Gk6 library because it is a seiving methods
 # Seiving methods are much more powerful, but they are not guaranteed to behave the same way twice
 # FOr the intitial stages of my experiments, I need to be able to 
-
-from fpylll import IntegerMatrix, BKZ, LLL, GSO
+# edit to fplll is the backend and super fast
+from fpylll import LLL, BKZ, IntegerMatrix, GSO, SVP
 
 def get_bkz2_params(blocksize, max_loops=8):
     """
@@ -47,6 +47,8 @@ BKZ.reduction(mat_bkz2, params)
 bkz2_time = time.perf_counter() - start
 bkz2_quality = mat_bkz2[0].norm()
 
+print(f"BKZ 2.0: Time = {bkz2_time:.2f}s, Quality = {bkz2_quality}")
+
 # --- STEP 2: MY ALGORITHM (To run on same DVP so that I can show comparison)
 
 # proposed ideas: dual lattice with same features as the BKZ 2.0 for more components,
@@ -70,7 +72,6 @@ def dual_block_reduction(basis, block_start, block_size):
     # gso
     gso = GSO.Mat(basis)
     gso.update_gso()
-    
     # 2. Extract the local block we want to reduce in the dual
     # We find a short vector in the dual of the projected block.
     # This vector corresponds to a 'large gap' in the primal.
@@ -82,7 +83,6 @@ def dual_block_reduction(basis, block_start, block_size):
     # than to create A = B^-1 * t
     params = BKZ.Param(block_size=block_size, strategies=BKZ.DEFAULT_STRATEGY, 
                        flags=BKZ.DUAL_REDUCTION)
-    
     BKZ.Reduction(gso, LLL.Wrapper(gso), params)()
 
     # return for the next component in the program
@@ -92,24 +92,24 @@ def dual_block_reduction(basis, block_start, block_size):
     # computationally
     return basis
 
+    # Note, the Dual Slide is diffeent to the Dual, first
+    # dual_block_reduc done by Micciancio & Walter's Self-Dual BKZ
+    # will return a basis that is dual-reduced for that block
+
 dual_lengths = [gso.get_dual_length(i) for i in range(dim)]
 # if the lengths are smaller, then the dual is easier to work in
 # then we work in the dual for this component of the BKZ block
 if dual_lengths[0] < mat_my[0].norm():
     gso.update_gso()
-    # proceed with dual BKZ block reduction using my proposed method
+    # proceed with dual BKZ block reduction using proposed method
     dual_block_reduction(mat_my, block_start, dim)
     else:
     # proceed with primal BKZ block reduction using my proposed method
     run_my_bkz_block_reduction(mat_my, gso, dual=False)
+
 my_time = time.perf_counter() - start
 my_quality = mat_my[0].norm()
-
-# edit to fplll is the backend and super fast
-from fpylll import LLL, BKZ, IntegerMatrix, GSO, SVP
-
-# dual_block_reduc done by Micciancio & Walter's Self-Dual BKZ
-# will return a basis that is dual-reduced for that block
+print(f"My Alg: Time = {my_time:.2f}s, Quality = {my_quality}")
 
 # --- STEP 3: COMPARE
 print("Comparison Results: ")
