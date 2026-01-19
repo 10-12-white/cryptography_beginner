@@ -217,5 +217,4 @@ For a lattice basis L and a block size k:
     end while 
 
 The idea is to use BKZ 2.0 with Pruning as our benchmark baseline because its behavior is well-characterized in the literature and it provides a stable environment for isolating the effects of our [Variable Change]. While Sieve-based variants offer better performance at blocksizes β>60, BKZ 2.0 remains the standard for assessing the fundamental efficiency of new reduction strategies.
-
 """
