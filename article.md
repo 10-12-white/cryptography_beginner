@@ -101,14 +101,6 @@ The conference emphasised practical solutions and set expectations for the migra
 
 [24] IQM and VTT Launch Europe’s 1st 50-Qubit Superconducting Quantum Computer, March 4, 2025 https://www.hpcwire.com/off-the-wire/iqm-and-vtt-launch-europes-1st-50-qubit-superconducting-quantum-computer/
 
-[25] Doerr and Levasseur ”Applied Discrete Structures” https://math.libretexts.org/Applied Discrete Structures (Doerr and Levasseur)/16%3A An In
-
-[26] UCLA, ”Circles” https://circles.math.ucla.edu/circles/lib/data/Handout-3861-3432.pdf
-
-[27] UCI, Graduate Algebra, Midterm Practise Problems, https://www.math.uci.edu/˜nckaplan/teaching files/graduate algebra/Math206B Midterm2 P
-
-[28] Wikipedia, Lattice Groups, [Online], Available: https://en.wikipedia.org/wiki/Lattice (group)
-
 [29] Planning for post-quantum cryptography, [Online], Available: https://www.cyber.gov.au/resources-business-and-government/governance-and-user-education governance/planning-post-quantum-cryptography
 
 [30] Post-Quantum Cryptography Initiative , [Online], Available: https://www.cisa.gov/resources-tools/resources/quantum-readiness-migration-post-quantum-cryptography
