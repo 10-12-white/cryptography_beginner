@@ -13,49 +13,6 @@ Crucially, the recursion must terminate. When the algorithm reaches a lattice (L
 
 This is the motivation.  How can we use this information about sublattices to improve the efficiency of BKZ, or another sorting algorithm, that helps reduce the overall size of the basis vectors.  And in fact, the apper poses many open questions.  Such as, is there a way of making them comparable?  How efficient is this algorithm in comparison to BKZ, LLL? Does it do a similar job?  The code for the project is prpvided in their GitHub, available here: {PROVIDE_LINK}.  But, the authord acknowledge that efficiencies within the code was not their first priority - can we make it faster? If so, how?
 
-## Project Goals
-
-- Make a list of links between lattice reduction reduction (yes its said like that) to LLL
-- Reduce complexity of the programming style reviewed in this paper
-- Understand the maths in it
-- Write up LLL
-- Write up BKZ
-- focus on lattice-reductin-reductions
-- Present
-- finish up the chaoter
-
-### Done
-
-- chapter down to 23 pages
-- AMSI presentation slides nearly done
-- written backlog up
-- worked on review
-- review on the slides
-- review on the chapter
-- awaiting inspiration for the next moves made
-- writeup bk2 2.0
-- write up dual-bkz 2.0
-- awaiting supervisor review for chapter  
-- waiting for supervisor review on AMSI presentation first
-- awaing for changes on next slides
-
-### Left to do Jan
-
-- edit code for dual-intuitive bkz 2.0
-- work on the maths behind enum in SVP
-- message AMSI for supervisors on project
-- how can we measure wastage in the SVP solver for BKZ2.0
-- What is reduction in efforts as opposed to using Dual-Intuitive BKZ (DIBKZ)
-- Find good example lattice basis to construct within?
-- Introduce the SVP challenge to your supervisors
-- Work on trying to explain basic properties first
-- Read the edits, and then work on them so that you are getting better at it
-- practise presenting
-
-### Left to do Feb
-
-- present
-- practise present
 
 ### The shape of the different options:
 
