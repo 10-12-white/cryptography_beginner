@@ -38,6 +38,8 @@ https://cseweb.ucsd.edu/classes/sp14/cse206A-a/lec3.pdf  == Dual Lattice
 
 https://cseweb.ucsd.edu/classes/wi12/cse206A-a/LecDual.pdf == Dual Lattice work also
 
+https://cims.nyu.edu/~regev/teaching/lattices_fall_2004/ln/DualLattice.pdf = dual lattice resources
+ 
 ### References
 
 7] Jean-Philippe Aumasson, Serious Cryptography, 2nd Edition, ”A Practical Introduction to Modern Encryption” August 2024, ISBN-13: 9781718503847 
