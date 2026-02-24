@@ -34,6 +34,7 @@ https://eprint.iacr.org/2017/730.pdf
 
 https://csrc.nist.gov/csrc/media/Events/2022/fourth-pqc-standardization-conference/documents/papers/practical-improvements-on-bkz-algorithm-pqc2022.pdf
 
+https://cseweb.ucsd.edu/classes/sp14/cse206A-a/lec3.pdf  == Dual Lattice
 
 ### References
 
