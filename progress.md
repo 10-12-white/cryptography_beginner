@@ -36,6 +36,8 @@ https://csrc.nist.gov/csrc/media/Events/2022/fourth-pqc-standardization-conferen
 
 https://cseweb.ucsd.edu/classes/sp14/cse206A-a/lec3.pdf  == Dual Lattice
 
+https://cseweb.ucsd.edu/classes/wi12/cse206A-a/LecDual.pdf == Dual Lattice work also
+
 ### References
 
 7] Jean-Philippe Aumasson, Serious Cryptography, 2nd Edition, ”A Practical Introduction to Modern Encryption” August 2024, ISBN-13: 9781718503847 
