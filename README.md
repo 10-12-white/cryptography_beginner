@@ -28,6 +28,10 @@ This is the motivation.  How can we use this information about sublattices to im
 
 In this repo, there is code for LLL. Have a play, see if you can make it faster.  Values have already been tested to ensure it is performing like SageMaths baked in biscuit-tin LLL, which is great.  We have not yet done the same with BKZ, this is the next step.  The maths for it has been understood, and its been written up in an Overleaf.  Will be getting to sharing it in due time.  For now, working on the way that we see the next stage of our progress going...
 
+## Next steps
+
+Next step will be taking this through to Honours
+
 
 
 
