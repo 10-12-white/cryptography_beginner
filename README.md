@@ -32,6 +32,7 @@ In this repo, there is code for LLL. Have a play, see if you can make it faster.
 
 Next step will be taking this through to Honours
 
+Ensure notes are up to date
 
 
 
