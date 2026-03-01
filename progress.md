@@ -28,6 +28,9 @@ First of all, we note: the real points on her lattice are established from the b
 
 ## Newest moves on this project
 
+Reading more
+Work on the stuff
+
 https://arxiv.org/html/2502.05160v1
 
 https://eprint.iacr.org/2017/730.pdf
